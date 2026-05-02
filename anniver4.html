@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Year 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #FFB6C1;
+  --hot: #FF69B4;
+  --rose: #C71585;
+  --deep: #8B0057;
+  --cream: #FFF9F4;
+  --warm: #FFE4E8;
+  --gold: #FFD700;
+  --navy: #060614;
+  --midnight: #0D0D2B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cormorant Garamond',serif;background:var(--navy);color:#fff;overflow-x:hidden;}
+::selection{background:var(--hot);color:#fff;}
+
+/* ──────────── HERO ──────────── */
+#hero{
+  height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 0%, #2a0a3e 0%, #0D0D2B 45%, #060614 100%);
+  position:relative;overflow:hidden;cursor:default;
+}
+.hero-eyebrow{
+  font-family:'Dancing Script',cursive;font-size:1.15rem;
+  color:var(--pink);letter-spacing:4px;
+  animation:fadeUp 1s ease 0.2s both;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,9vw,7rem);
+  line-height:1.05;text-align:center;
+  animation:fadeUp 1s ease 0.5s both;
+}
+.hero-title em{color:var(--hot);font-style:italic;}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:1.1rem;color:rgba(255,182,193,0.7);
+  letter-spacing:3px;margin-top:1.2rem;text-transform:uppercase;
+  animation:fadeUp 1s ease 0.8s both;
+}
+.hero-btn{
+  margin-top:3rem;
+  animation:fadeUp 1s ease 1.1s both;
+}
+.btn{
+  background:none;border:1.5px solid rgba(255,182,193,0.5);
+  color:var(--pink);padding:.85rem 2.8rem;
+  font-family:'Cormorant Garamond',serif;font-size:1rem;
+  letter-spacing:2px;cursor:pointer;border-radius:50px;
+  transition:all .3s;text-transform:uppercase;
+}
+.btn:hover{background:var(--pink);color:var(--navy);border-color:var(--pink);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+
+.petal{position:absolute;pointer-events:none;animation:petalFloat var(--d) ease-in-out infinite var(--del);}
+@keyframes petalFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-28px) rotate(18deg);}}
+.hstar{position:absolute;border-radius:50%;pointer-events:none;
+  animation:twinkle var(--d) ease-in-out infinite var(--del);}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:1;transform:scale(1.6);}}
+
+/* ──────────── LOVE LETTER ──────────── */
+#love-letter{
+  background:linear-gradient(160deg, #0a0518 0%, #130820 50%, #06030f 100%);
+  padding: 110px 20px 120px;
+  position:relative;overflow:hidden;
+}
+#love-letter::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,182,193,.4),transparent);
+}
+#love-letter::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,182,193,.4),transparent);
+}
+
+/* ambient glow orbs */
+.ll-orb{
+  position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:.18;
+}
+
+.ll-inner{
+  max-width:720px;margin:0 auto;
+  position:relative;z-index:2;
+  text-align:center;
+}
+
+.ll-kicker{
+  font-family:'Dancing Script',cursive;
+  font-size:1.1rem;color:rgba(255,182,193,.6);
+  letter-spacing:3px;margin-bottom:1.4rem;
+  opacity:0;transition:opacity .8s ease;
+}
+.ll-kicker.vis{opacity:1;}
+
+.ll-heading{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  color:#fff;font-style:italic;
+  margin-bottom:3rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .9s ease .2s, transform .9s ease .2s;
+}
+.ll-heading.vis{opacity:1;transform:none;}
+
+/* The envelope */
+.envelope-wrap{
+  position:relative;margin:0 auto;max-width:600px;
+}
+
+.envelope{
+  background:linear-gradient(145deg,#1a0828,#240d36);
+  border:1px solid rgba(255,182,193,.18);
+  border-radius:4px;
+  padding:50px 50px 45px;
+  position:relative;
+  box-shadow: 0 0 0 1px rgba(255,105,180,.06),
+              0 30px 80px rgba(0,0,0,.6),
+              inset 0 1px 0 rgba(255,255,255,.06);
+  text-align:left;
+  opacity:0;transform:translateY(30px) scale(.97);
+  transition:opacity .9s ease .4s, transform .9s ease .4s;
+}
+.envelope.vis{opacity:1;transform:none;}
+
+/* wax seal */
+.wax-seal{
+  position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ff9abf,#C71585 55%,#7a0040);
+  box-shadow:0 2px 16px rgba(199,21,133,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+}
+.wax-seal::before{
+  content:'';position:absolute;inset:3px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.letter-salutation{
+  font-family:'Dancing Script',cursive;
+  font-size:1.9rem;color:var(--hot);
+  margin-bottom:1.4rem;display:block;
+}
+
+.letter-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.5vw,1.18rem);
+  line-height:1.95;
+  color:rgba(255,240,248,.82);
+  min-height:6em;
+}
+
+.letter-text .cursor{
+  display:inline-block;width:2px;height:1.1em;
+  background:var(--hot);margin-left:2px;vertical-align:text-bottom;
+  animation:blink .8s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.letter-ps{
+  margin-top:1.6rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.92rem;font-style:italic;
+  color:rgba(255,182,193,.5);
+  opacity:0;transition:opacity 1s ease;
+}
+.letter-ps.vis{opacity:1;}
+
+.letter-sig-block{
+  margin-top:2.2rem;text-align:right;
+  opacity:0;transition:opacity 1s ease;
+}
+.letter-sig-block.vis{opacity:1;}
+.letter-sig-block span{
+  font-family:'Dancing Script',cursive;
+  font-size:2rem;color:var(--gold);
+}
+.letter-sig-block small{
+  display:block;font-size:.75rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,182,193,.4);margin-top:.3rem;
+}
+
+/* decorative line */
+.ll-rule{
+  width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,182,193,.4),transparent);
+  margin:1.8rem auto 0;
+}
+
+.sec-title{
+  text-align:center;font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.8rem);margin-bottom:.5rem;
+}
+.sec-sub{
+  text-align:center;font-family:'Dancing Script',cursive;
+  font-size:1.4rem;margin-bottom:.5rem;
+}
+
+/* ──────────── STAR MAP ──────────── */
+#starmap{
+  min-height:100vh;background:var(--midnight);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+}
+#starCanvas{position:absolute;inset:0;width:100%;height:100%;}
+#starmap .sec-title{color:#fff;margin-top:70px;z-index:10;position:relative;}
+#starmap .sec-sub{color:rgba(255,182,193,.8);z-index:10;position:relative;}
+.star-counter{
+  font-family:'Dancing Script',cursive;font-size:1.15rem;
+  color:rgba(255,182,193,.7);z-index:10;position:relative;margin-bottom:10px;
+}
+.hint{
+  font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;
+  color:rgba(255,182,193,.45);z-index:10;position:relative;letter-spacing:1px;
+}
+
+/* Star modal */
+.smodal{
+  display:none;position:fixed;inset:0;
+  background:rgba(6,6,20,.88);z-index:1000;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);
+}
+.smodal.open{display:flex;animation:min .35s ease;}
+@keyframes min{from{opacity:0;transform:scale(.92);}to{opacity:1;transform:scale(1);}}
+.scard{
+  background:linear-gradient(145deg,#160a28,#1e0f38);
+  border:1px solid rgba(255,182,193,.25);
+  border-radius:22px;padding:32px;max-width:400px;width:90%;
+  text-align:center;position:relative;
+  box-shadow:0 0 80px rgba(255,105,180,.18),inset 0 0 40px rgba(255,105,180,.05);
+}
+.scard-ph{
+  width:100%;aspect-ratio:4/3;
+  background:linear-gradient(135deg,#250a3e,#361550);
+  border-radius:12px;margin-bottom:18px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  border:1.5px dashed rgba(255,182,193,.3);
+  cursor:pointer;position:relative;overflow:hidden;
+}
+.scard-ph img{width:100%;height:100%;object-fit:contain;border-radius:12px;}
+.scard-ph.has-img{
+  width:fit-content;
+  max-width:100%;
+  aspect-ratio:auto;
+  margin:0 auto 18px;
+}
+.scard-ph.has-img img{
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:52vh;
+  display:block;
+}
+.scard-ph input[type=file]{position:absolute;opacity:0;inset:0;cursor:pointer;}
+.scard-month{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--hot);margin-bottom:5px;}
+.scard-mem{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:rgba(255,255,255,.8);font-style:italic;line-height:1.7;}
+.mclose{
+  position:absolute;top:14px;right:16px;background:none;border:none;
+  color:rgba(255,182,193,.5);font-size:1.4rem;cursor:pointer;transition:color .2s;
+  line-height:1;
+}
+.mclose:hover{color:var(--hot);}
+
+/* Planet */
+#planet-wrap{
+  display:none;position:fixed;bottom:-240px;left:50%;
+  transform:translateX(-50%);z-index:600;text-align:center;
+  animation:planetRise 1.8s cubic-bezier(.16,1,.3,1) forwards;
+  cursor:pointer;
+}
+#planet-wrap.show{display:block;}
+@keyframes planetRise{from{bottom:-240px;opacity:0;}to{bottom:55px;opacity:1;}}
+.planet{
+  width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,#ffcce0,#FF69B4 38%,#C71585 72%,#6b003a);
+  box-shadow:inset -16px -12px 32px rgba(0,0,0,.45),
+             0 0 50px rgba(255,105,180,.55),
+             0 0 100px rgba(255,105,180,.2);
+  position:relative;margin:0 auto;
+  animation:pFloat 3.2s ease-in-out infinite;
+}
+@keyframes pFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+.planet::after{
+  content:'';position:absolute;
+  width:200px;height:32px;
+  border:2.5px solid rgba(255,182,193,.4);
+  border-radius:50%;top:50%;left:50%;
+  transform:translate(-50%,-50%) rotateX(72deg);
+  box-shadow:0 0 16px rgba(255,182,193,.2);
+}
+.planet-msg{
+  font-family:'Dancing Script',cursive;color:var(--pink);
+  font-size:1rem;margin-top:14px;
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.65;}50%{opacity:1;}}
+
+/* Planet zoom */
+#pzoom{
+  display:none;position:fixed;inset:0;z-index:2000;
+  align-items:center;justify-content:center;
+  pointer-events:none;
+}
+#pzoom.go{display:flex;}
+.zoom-p{
+  width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,#ffcce0,#FF69B4 38%,#C71585 72%,#6b003a);
+  animation:zoomGo 1.6s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes zoomGo{
+  0%{transform:scale(1);opacity:1;}
+  60%{transform:scale(35);opacity:1;}
+  100%{transform:scale(70);opacity:0;}
+}
+#pzoom-bg{
+  position:fixed;inset:0;z-index:1999;
+  background:#FFB6C1;opacity:0;transition:opacity .4s;pointer-events:none;
+}
+#pzoom-bg.show{opacity:1;}
+
+/* ──────────── LOVE WALL ──────────── */
+#love-wall{
+  display:none;
+  background:linear-gradient(160deg,#ffe4ec 0%,#fff5f8 40%,#ffedf5 100%);
+  padding:90px 20px 60px;position:relative;
+}
+#love-wall.active{display:block;animation:fadeUp .8s ease both;}
+#love-wall .sec-title{color:#8B0057;}
+#love-wall .sec-sub{color:var(--hot);}
+.love-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px;
+}
+.lcard{
+  background:#fff;border-radius:14px;padding:16px 13px;text-align:center;
+  box-shadow:0 3px 14px rgba(255,105,180,.09);
+  transition:transform .25s,box-shadow .25s;cursor:default;
+  border:1px solid rgba(255,182,193,.25);
+  animation:cardIn .4s ease both;
+}
+.lcard:hover{transform:translateY(-4px);box-shadow:0 8px 26px rgba(255,105,180,.18);}
+.lcard:nth-child(3n+1){background:#fff7fa;}
+.lcard:nth-child(3n+2){background:#fff9f0;}
+.lcard:nth-child(3n){background:#f5fff9;}
+.lnum{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--hot);display:block;margin-bottom:5px;}
+.lreason{font-size:.8rem;color:#666;font-style:italic;line-height:1.5;}
+@keyframes cardIn{from{opacity:0;transform:scale(.92);}to{opacity:1;transform:scale(1);}}
+
+.closing{
+  max-width:680px;margin:70px auto 0;
+  background:linear-gradient(135deg,#FF69B4,#C71585);
+  border-radius:28px;padding:55px 40px;text-align:center;
+  box-shadow:0 20px 60px rgba(199,21,133,.25);
+}
+.closing h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:#fff;font-style:italic;margin-bottom:18px;}
+.closing p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);line-height:1.85;}
+.closing .sig{font-family:'Dancing Script',cursive;font-size:2.2rem;color:#fff;margin-top:22px;display:block;}
+
+@media(max-width:600px){
+  .envelope{padding:36px 28px 32px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <p class="hero-eyebrow">✨ 3rd May · One Year Together ✨</p>
+  <h1 class="hero-title">
+    <em>Smoll Babbyy</em><br>& Big Babbyy
+  </h1>
+  <p class="hero-sub">A whole year of us · 365 days · one big love</p>
+  <div class="hero-btn">
+    <button class="btn" onclick="document.getElementById('love-letter').scrollIntoView({behavior:'smooth'})">Begin Our Story →</button>
+  </div>
+</section>
+
+<!-- ══════════ LOVE LETTER ══════════ -->
+<section id="love-letter">
+  <!-- ambient glows -->
+  <div class="ll-orb" style="width:500px;height:500px;background:#C71585;top:-100px;left:-150px;"></div>
+  <div class="ll-orb" style="width:400px;height:400px;background:#ff69b4;bottom:-80px;right:-100px;"></div>
+
+  <div class="ll-inner">
+    <p class="ll-kicker" id="ll-kicker">✦ a letter, just for you ✦</p>
+    <h2 class="ll-heading" id="ll-heading">From My Heart</h2>
+
+    <div class="envelope-wrap">
+      <div class="envelope" id="ll-envelope">
+        <div class="wax-seal">🌹</div>
+        <span class="letter-salutation">My love,</span>
+        <!-- 🌸 EDIT: Replace this letter with your own words. It types itself out automatically. -->
+        <div class="letter-text" id="ll-text"><span class="cursor"></span></div>
+        <div class="letter-sig-block" id="ll-sig">
+          <!-- 🌸 EDIT: Replace "Your Name" -->
+          <span>Makkad(Aapka Dhungu) 🌹</span>
+          <small>3rd May, Year One</small>
+        </div>
+        <p class="letter-ps" id="ll-ps">
+          <!-- 🌸 EDIT: Add a cheeky P.S. or keep this one -->
+          P.S. — I'll probably embarrass myself trying to say all this in person too. Worth it.
+        </p>
+        <div class="ll-rule"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STAR MAP ══════════ -->
+<section id="starmap">
+  <canvas id="starCanvas"></canvas>
+  <h2 class="sec-title">Our Universe</h2>
+  <p class="sec-sub">Each star holds a memory hehe find them all ✨</p>
+  <p class="star-counter" id="starCounter">0 / 12 stars discovered</p>
+  <p class="hint">Click the glowing stars to unlock our memories</p>
+</section>
+
+<!-- Star Modal -->
+<div class="smodal" id="starModal">
+  <div class="scard">
+    <button class="mclose" onclick="closeModal()">✕</button>
+    <div class="scard-ph" id="modalPhoto">
+      <span style="font-size:2.4rem">📸</span>
+      <p style="font-size:.75rem;color:rgba(255,182,193,.65);margin-top:6px;">Add your photo here</p>
+      <input type="file" accept="image/*" onchange="loadModalPhoto(this)" />
+    </div>
+    <div class="scard-month" id="modalMonth"></div>
+    <div class="scard-mem" id="modalMem"></div>
+  </div>
+</div>
+
+<!-- Planet -->
+<div id="planet-wrap" onclick="triggerZoom()">
+  <div class="planet"></div>
+  <div class="planet-msg">✨ You found all our stars — tap me ✨</div>
+</div>
+
+<div id="pzoom"><div class="zoom-p"></div></div>
+<div id="pzoom-bg"></div>
+
+<!-- ══════════ LOVE WALL ══════════ -->
+<section id="love-wall">
+  <h2 class="sec-title">365 Reasons I Love You</h2>
+  <p class="sec-sub">One for every day of our first year 🌹</p>
+  <div class="love-grid" id="loveGrid"></div>
+  <div class="closing">
+    <h2>"To another year, my love"</h2>
+    <p>Happpy Anniversary Dukkuuuuu💕💕💕 I loveeeeee youuuuuu soooo soooo soooo muchhhhh Babbeee.. You are my favourite person.. The one my heart feels safe with, the one my soul leans on without fear. With you, love doesnt feel like dream, it feels like home wrapped in warmth. Aap mera bas pyaar nai ho aapki wajah se mai pyaar mei believe karta hu. Aapki smile , aapka walk, aapka baat karna, aapka pitti lagana meri, aapka guccha hona, aapka nakhre dikhana It all makes me fall in love with you even more day by day. 
+        
+    I know mai kuch dino se busy hu aur apan nai mil paa rahe recently jyada but im shorry lekin trust me things will get better ji. Last year bohot accha gaya, It was like khushiyan wapas mil gayi mujhe apni T_T. Aur uk kehte hai jab you are happy aur you are enjoying ther company time kab nikal jata hai pata nai chalta? I swear last year kaha gaya like itna jaldi i cant believe. Apan ne jo bhi memories banaye and kutte billi jaise ladhe heheh but maza bohot aaya ji aur its just been one year.
+    
+    Abhi bohot saaal aane bache hai aur next year apan aur memories banayenge aur ek dusre ko bohot saara khush rakhenge aur lovey lovey karenge hehehe aur ekdum cutiee babiess banke rahenge.Mwah.Mwah.Mwah.
+    
+    Aise he kisi din mai aaapko gharpe surprise dera hounga ya fir kahi saath mei romantic dinner kar rahe honge heheh omgggg i cant wait to live with you and spend my life with you. Mujhe bas aapke saath rehna hai saari zindagi aur aap ho toh mujhe kisi aur ki jarurat nai hai ji mwahhahahaha.
+
+    I loveeeee youuuu hehe aur hehe agle saal issi time pe 2nd anniversary hehe</p>
+    <span class="sig">Forever yours, Big Babyy(Aapka Dhungu) 🌹</span>
+  </div>
+</section>
+
+<script>
+/* ── HERO decoration ── */
+const hero = document.getElementById('hero');
+const petalArr = ['🌸','🌹','💕','✨','🌷','🥀'];
+for(let i=0;i<10;i++){
+  const p=document.createElement('div');p.className='petal';
+  p.textContent=petalArr[Math.floor(Math.random()*petalArr.length)];
+  p.style.cssText=`left:${Math.random()*100}%;top:${10+Math.random()*80}%;font-size:${.9+Math.random()*1.4}rem;--d:${4+Math.random()*4}s;--del:${Math.random()*4}s;`;
+  hero.appendChild(p);
+}
+for(let i=0;i<90;i++){
+  const s=document.createElement('div');s.className='hstar';
+  const sz=Math.random()<.25?3:Math.random()<.5?2:1;
+  s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:white;--d:${2+Math.random()*3}s;--del:${Math.random()*4}s;`;
+  hero.appendChild(s);
+}
+
+/* ══════════ LOVE LETTER typewriter ══════════ */
+// 🌸 EDIT: Replace this entire letter with your own words
+const LETTER = `Hey Babee.. Its been 1 year already I cant believe.This year has been the best year of my life.Not because everything was perfect but becuase you were there with me in every single moment.
+
+The good days felt better with you by my side and the bad ones well you turned them into good days. You make ordinary things feel important. You supported me thought this year thorugh my high and lows and no matter what the situation was. I feel really lucky to have you as my life partner.
+
+I dont know how to thank you enough for choosing me (A bhondu) as your partner for life but I'll make sure that in the coming years you feel like this was the best decision of your life. 
+
+I want to experience my life with you and tell our grandchildren stories about our love and all the things we have been thorugh.
+
+You are the love of my life and Ill love you forever and ever babe.
+
+Happy One Year, Babyy. Heres to everything still to come.`;
+
+let llStarted = false;
+
+function startTypewriter(){
+  if(llStarted) return;
+  llStarted = true;
+
+  const el   = document.getElementById('ll-text');
+  const sig  = document.getElementById('ll-sig');
+  const ps   = document.getElementById('ll-ps');
+  let i = 0;
+
+  // paragraphs
+  const paras = LETTER.trim().split('\n\n');
+  let html = '';
+  paras.forEach(()=>{ html += '<p class="letter-para" style="margin-bottom:1.2em"></p>'; });
+  el.innerHTML = html + '<span class="cursor"></span>';
+  const paraEls = el.querySelectorAll('.letter-para');
+  const cursor  = el.querySelector('.cursor');
+
+  let pIdx = 0, cIdx = 0;
+  const fullText = paras.join('\n\n');
+
+  function type(){
+    if(i >= fullText.length){
+      cursor.remove();
+      sig.classList.add('vis');
+      setTimeout(()=>ps.classList.add('vis'), 500);
+      return;
+    }
+    const ch = fullText[i];
+    if(ch === '\n' && fullText[i+1] === '\n'){
+      pIdx++; cIdx = 0; i += 2;
+    } else {
+      if(paraEls[pIdx]) paraEls[pIdx].textContent += ch;
+      cIdx++; i++;
+    }
+    // move cursor to end of current para
+    if(paraEls[pIdx]) paraEls[pIdx].appendChild(cursor);
+    const speed = (ch === '.' || ch === ',' || ch === '!') ? 55 : 18;
+    setTimeout(type, speed);
+  }
+  type();
+}
+
+const llObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.getElementById('ll-kicker').classList.add('vis');
+      document.getElementById('ll-heading').classList.add('vis');
+      setTimeout(()=>{
+        document.getElementById('ll-envelope').classList.add('vis');
+        setTimeout(startTypewriter, 700);
+      }, 300);
+      llObs.disconnect();
+    }
+  });
+},{threshold:.2});
+llObs.observe(document.getElementById('love-letter'));
+
+/* ══════════ STAR MAP ══════════ */
+const canvas=document.getElementById('starCanvas');
+const ctx=canvas.getContext('2d');
+let opened=0;
+const TOTAL=12;
+
+const months=[
+  {label:'May 2025',   emoji:'🌸', joke:'[Finally after soo long and suffering we got back together!!! 🌸]'},
+  {label:'June 2025',  emoji:'☀️', joke:'[Pehla colour difference exposing photu ☀️]'},
+  {label:'July 2025',  emoji:'🌊', joke:'[One of the best months last year. First Movie date and first (Look at the emoji) khikhi 🌊]'},
+  {label:'August 2025',emoji:'🌻', joke:'[Hauww Jaadddooo baby in big babbyy ka raincoat🌻]'},
+  {label:'Sep 2025',   emoji:'🍂', joke:'[Finally aapke birthday ke wakt baby se mila mai hehhe 🎂]'},
+  {label:'Oct 2025',   emoji:'🎃', joke:'[Half way mark babeeyeyy 6 Months of happiness!! 😍]'},
+  {label:'Nov 2025',   emoji:'🍁', joke:'[Iss photu mei aapne dekho mujhe gift diya tha hauwww mai bohot happy tha 😁]'},
+  {label:'Dec 2025',   emoji:'❄️', joke:'[Haaauww we went wings khane ehheheh maza aaya tha bohot 🍗]'},
+  {label:'Jan 2026',   emoji:'🎉', joke:'[First of many New years together!!🎇]'},
+  {label:'Feb 2026',   emoji:'💕', joke:'[First Valentines Day after soo long with love of my life 💕]'},
+  {label:'Mar 2026',   emoji:'🌱', joke:'[BigBaby ka birthdayyyyyy !!! Aur bhondu babeeyy ka cute photu hehe🌱]'},
+  {label:'Apr 2026',   emoji:'🌼', joke:'[Umm iss month apan nai mile itna but but but hehe I love youuu bebeeee 🌼]'},
+];
+
+const memStars=months.map((m)=>({...m,opened:false,pulse:Math.random()*Math.PI*2}));
+const relPos=[
+  [.14,.28],[.34,.17],[.56,.23],[.76,.19],[.88,.38],[.82,.58],
+  [.72,.74],[.50,.68],[.29,.76],[.13,.62],[.08,.44],[.44,.52]
+];
+let bgSt=[],mSt=[];
+
+function initCanvas(){
+  const sm=document.getElementById('starmap');
+  canvas.width=sm.offsetWidth;canvas.height=sm.offsetHeight;
+  bgSt=[];
+  for(let i=0;i<250;i++) bgSt.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:.4+Math.random()*1.4,tw:Math.random()*Math.PI*2,spd:.008+Math.random()*.022});
+  mSt=relPos.map(([rx,ry],i)=>({x:rx*canvas.width,y:ry*canvas.height+160,i,pulse:Math.random()*Math.PI*2}));
+}
+
+function drawStar5(cx,cy,pts,ro,ri,col){
+  let a=-Math.PI/2,step=Math.PI/pts;
+  ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*ro,cy+Math.sin(a)*ro);
+  for(let i=0;i<pts;i++){a+=step;ctx.lineTo(cx+Math.cos(a)*ri,cy+Math.sin(a)*ri);a+=step;ctx.lineTo(cx+Math.cos(a)*ro,cy+Math.sin(a)*ro);}
+  ctx.closePath();ctx.globalAlpha=1;ctx.fillStyle=col;ctx.fill();
+}
+
+function loop(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  bgSt.forEach(s=>{s.tw+=s.spd;const a=.2+.6*Math.sin(s.tw);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a})`;ctx.fill();});
+  mSt.forEach((s,i)=>{
+    s.pulse+=.028;
+    const od=memStars[i].opened;
+    const col=od?'#FFD700':'#FFB6C1';
+    const br=od?11:7;
+    const gsize=br+3.5*Math.sin(s.pulse);
+    const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,gsize*3.5);
+    g.addColorStop(0,od?'rgba(255,215,0,.35)':'rgba(255,182,193,.35)');
+    g.addColorStop(1,'transparent');
+    ctx.beginPath();ctx.arc(s.x,s.y,gsize*3.5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    drawStar5(s.x,s.y,5,gsize,gsize*.42,col);
+    ctx.globalAlpha=od?.95:.6;ctx.fillStyle=od?'#FFD700':'#FFB6C1';
+    ctx.font=`13px 'Dancing Script',cursive`;ctx.textAlign='center';
+    ctx.fillText(months[i].label,s.x,s.y+gsize+18);ctx.globalAlpha=1;
+  });
+  requestAnimationFrame(loop);
+}
+
+canvas.addEventListener('click',e=>{
+  const r=canvas.getBoundingClientRect();
+  const mx=e.clientX-r.left,my=e.clientY-r.top;
+  mSt.forEach((s,i)=>{if(Math.hypot(mx-s.x,my-s.y)<28)openStar(i);});
+});
+
+function tryLoadImage(candidates, onFound, onMissing){
+  let idx = 0;
+  function next(){
+    if(idx >= candidates.length){
+      onMissing();
+      return;
+    }
+    const src = candidates[idx++];
+    const img = new Image();
+    img.onload = ()=>onFound(src);
+    img.onerror = next;
+    img.src = src;
+  }
+  next();
+}
+
+function monthImageCandidates(i){
+  const label = months[i].label;
+  const monthWord = label.split(' ')[0];
+  const exactMonthFiles = {
+    June: 'June.jpg',
+    July: 'July.jpg',
+    Aug: 'August.jpg',
+    Sep: 'September.jpg',
+    Oct: 'October.jpg',
+    Nov: 'November.jpg',
+    Dec: 'December.jpg',
+    Jan: 'January.jpg',
+    Feb: 'February.jpg',
+    Mar: 'March.jpg',
+    Apr: 'April.png'
+  };
+  const monthLower = monthWord.toLowerCase();
+  const monthUpper = monthWord.toUpperCase();
+  const exts = ['jpg','jpeg','png','webp','gif','JPG','JPEG','PNG','WEBP','GIF'];
+  const names = [label, monthWord, monthLower, monthUpper];
+  const out = [];
+  if(exactMonthFiles[monthWord]) out.push(exactMonthFiles[monthWord]);
+  names.forEach(n=>exts.forEach(e=>out.push(`${n}.${e}`)));
+  return out;
+}
+
+function openStar(i){
+  document.getElementById('modalMonth').textContent=months[i].label+' '+months[i].emoji;
+  document.getElementById('modalMem').textContent=months[i].joke;
+  const ph=document.getElementById('modalPhoto');
+  tryLoadImage(
+    monthImageCandidates(i),
+    (src)=>{
+      ph.classList.add('has-img');
+      ph.innerHTML=`<img src="${src}" alt="${months[i].label} Memory"><input type="file" accept="image/*" onchange="loadModalPhoto(this)" />`;
+    },
+    ()=>{
+      ph.classList.remove('has-img');
+      ph.innerHTML=`<span style="font-size:2.4rem">📸</span><p style="font-size:.75rem;color:rgba(255,182,193,.65);margin-top:6px">Add your photo here</p><input type="file" accept="image/*" onchange="loadModalPhoto(this,${i})" />`;
+    }
+  );
+  document.getElementById('starModal').classList.add('open');
+  if(!memStars[i].opened){
+    memStars[i].opened=true;opened++;
+    document.getElementById('starCounter').textContent=`${opened} / ${TOTAL} stars discovered ✨`;
+    if(opened===TOTAL) setTimeout(()=>document.getElementById('planet-wrap').classList.add('show'),900);
+  }
+}
+
+function loadModalPhoto(input){
+  if(!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const ph=document.getElementById('modalPhoto');
+    ph.classList.add('has-img');
+    ph.innerHTML=`<img src="${e.target.result}" alt="Memory"><input type="file" accept="image/*" onchange="loadModalPhoto(this)" />`;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function closeModal(){document.getElementById('starModal').classList.remove('open');}
+document.getElementById('starModal').addEventListener('click',e=>{if(e.target===document.getElementById('starModal'))closeModal();});
+
+function triggerZoom(){
+  document.getElementById('planet-wrap').style.display='none';
+  const pz=document.getElementById('pzoom');
+  const bg=document.getElementById('pzoom-bg');
+  pz.classList.add('go');
+  setTimeout(()=>bg.classList.add('show'),600);
+  setTimeout(()=>{
+    const wall=document.getElementById('love-wall');
+    wall.classList.add('active');
+    buildLoveWall();
+    wall.scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{pz.classList.remove('go');bg.classList.remove('show');},600);
+  },1700);
+}
+
+/* ══════════ LOVE WALL ══════════ */
+const reasons=[
+  "I love how you feel like home.","I love your smile.","I love how you understand me without words.","I love that you laugh at my bad jokes.","I love how you make normal days special.","I love how safe I feel with you.","I love your kindness.","I love how you make me better.","I love your laugh.","I love how you remember small things.","I love the way you look at me.","I love how you support me.","I love your strength.","I love your honesty.","I love how you make me feel important.","I love your patience.","I love how you brighten bad days.","I love your Bhonduness.","I love how you listen.","I love your little habits.","I love how you calm me down.","I love your voice.","I love how you say my name.","I love how you trust me.","I love how you inspire me.","I love how you believe in me.","I love how you stay real.","I love how you challenge me.","I love your energy.","I love how you care about my feelings.","I love your hugs.","I love how you never give up.","I love your Drawing(Khikhi).","I love how you bring peace.","I love how you make me feel at home.","I love how you notice little things.","I love your positivity.(Joke ho gaya)","I love how you make time for me.","I love your loyalty.","I love how you make everything better.","I love how you think.","I love how you respect me.","I love your passion.","I love how you listen to me.","I love how you make me feel valued.","I love your strength when things are hard.","I love how you forgive.","I love how deeply you care.","I love your curiosity.","I love how you dream big.","I love how you hold my hand.","I love how you comfort me.","I love your warmth.","I love how you make me smile instantly.","I love your honesty, even when it's hard.","I love how you stand by me.","I love your uniqueness.","I love how you bring out my best.","I love how you stay hopeful.","I love how you love me.","I love how you see me.","I love how you care about our future.","I love your intelligence.","I love how you express yourself.","I love how you handle tough moments.","I love how you respect others.","I love your smile again it deserves two mentions.","I love how you comfort me without trying.","I love how you include me in everything.","I love how you appreciate me.","I love how you make me feel lucky.","I love when you overreact to things..","I love how you never judge me.","I love how thoughtful you are.","I love your curiosity to things.","I love how you care about my happiness.","I love how you balance me.","I love your determination.","I love how you stay grounded.","I love how you make love feel easy.","I love how you kuchupuchu me.","I love how you pretend its okay when its not hehe.","I love how you always win arguments somehow.","I love how you get mad then text me anyway.","I love how you say 'nothing' but mean everything.","I love how you act tough but melt quickly.","I love how you make fun of me but still love me.","I love how you randomly become extra cute.","I love how you can be dramatic sometimes 😂","I love how you still pick me after all that.","I love how you make me feel understood.","I love how you stay during hard times.","I love how you make love feel real.","I love how you choose us.","I love how you make everything meaningful.","I love how you care deeply.","I love how you stay strong for both of us.","I love how you believe in us.","I love how you make life brighter.","I love you for being you.","I love how you notice when I'm not okay.","I love how you make me laugh out of nowhere.","I love your random mood swings 😭","I love how you stay soft in a harsh world.","I love how you bring calm to chaos.","I love how you make time feel fast.","I love how you hold onto me.","I love how you trust us.","I love how you fight for us.","I love how you never give up on me.","I love how you make me feel chosen.","I love how you look when you're happy.","I love how you act when you miss me.","I love how you care even when you're tired.","I love how you make effort.","I love how you randomly check on me.","I love how you make everything warmer.","I love how you think deeply.","I love how you feel deeply.","I love how you love deeply.","I love how you make me forget stress.","I love how you stay honest.","I love how you say what you feel.","I love how you bring joy.","I love how you stay by me.","I love how you accept me fully.","I love how you make me smile at my phone.","I love how you become my peace.","I love how you're my safe place.","I love how you feel like forever.","I love how you check on me randomly.","I love how you make small moments big.","I love how you make me laugh when I'm quiet.","I love how you stay even when things aren't easy.","I love how you care more than you show.","I love how you bring warmth into my life.","I love how you get excited over little things.","I love how you miss me even when I just left.","I love how you act like you dont care about some things.","I love how you always find a way back to me.","I love how you make effort without being asked.","I love how you love me on my worst days.","I love how you never let me feel alone.","I love how you make time no matter what.","I love how you understand my silence.","I love how you notice my mood instantly.","I love how you stay patient with me.","I love how you calm my overthinking.","I love how you deal with my mood swings 😭","I love how you make everything feel lighter.","I love how you bring peace into chaos.","I love how you make me feel enough.","I love how you see the real me.","I love how you care deeply about us.","I love how you make love feel natural.","I love how you stay by my side.","I love how you bring out my softer side.","I love how you don't give up on me.","I love how you stay strong for us.","I love how you keep choosing me.","I love how you make me feel wanted.","I love how you act cute without trying.","I love how you randomly become extra clingy😁","I love how you make everything feel right.","I love how you keep things real.","I love how you trust me fully.","I love how you respect me.","I love how you stand by me.","I love how you make me feel special.","I love how you make my days better.","I love how you become my comfort.","I love how you stay loyal.","I love how you love deeply.","I love how you stay true.","I love how you care endlessly.","I love how you make life softer.","I love how you stay patient with us.","I love how you fight for us.","I love how you make love feel easy.","I love how you make everything meaningful.","I love how you stay kind.","I love how you make me feel lucky.","I love how you bring joy into my life.","I love how you stay positive.","I love how you understand me deeply.","I love how you stay gentle.","I love how you make me feel complete.","I love how you stay with me.","I love how you laugh at the wrong time 😂","I love how you act mad but still care.","I love how you make everything fun.","I love how you keep things interesting.","I love how you annoy me just a little.","I love how you still choose me.","I love how you never leave.","I love how you make love feel real.","I love how you make everything better.","I love how you are my person.","I love you because you're you.","I love how you still choose me daily.","I love how you never make me feel alone.","I love how you make love feel simple.","I love how you stay genuine.","I love how you laugh freely.","I love how you care endlessly.","I love how you give your best.","I love how you bring meaning to life.","I love how you feel like home and adventure.","I love how you stay real.","I love how you make me forget stress.","I love how you stay strong when things get hard.","I love how you care without limits.","I love how you make me feel understood.","I love how you bring peace into my mind.","I love how you freakout everytime.","I love how you never stop trying.","I love how you always come back to me.","I love how you make me feel important.","I love how you notice everything about me.","I love how you remember small details.","I love how you make love feel safe.","I love how you stay consistent.","I love how you show up for me.","I love how you make everything brighter.","I love how you stay soft at heart.","I love how you care deeply for others.","I love how you make me feel seen.","I love how you act silly.","I love how you randomly tease me.","I love how you get jealous but hide it.","I love how you act innocent but aren't 😂","I love how you make me laugh nonstop.","I love how you bring out my fun side.","I love how you keep things exciting.","I love how you surprise me.","I love how you make moments unforgettable.","I love how you stay unpredictable in a good way.","I love how you stay loyal no matter what.","I love how you never let go of us.","I love how you stay honest.","I love how you build me up.","I love how you make me stronger.","I love how you make me better.","I love how you believe in me.","I love how you push me forward.","I love how you never doubt us.","I love how you stand by me always.","I love how you make love feel calm.","I love how you make love feel exciting.","I love how you balance everything.","I love how you understand my silence.","I love how you read my mind sometimes.","I love how you comfort me instantly.","I love how you stay close to me.","I love how you care endlessly.","I love how you give your best.","I love how you make life better.","I love how you become my peace.","I love how you become my happiness.","I love how you become my comfort.","I love how you become my home.","I love how you become my everything.","I love how you stay with me always.","I love how you make life meaningful.","I love how you bring purpose into my life.","I love how you make everything worth it.","I love how you stay by my side.","I love how you gaslight me.","I love how you pretend not to care but do.","I love how you always come back after fights.","I love how you act stubborn sometimes.","I love how you keep loving me anyway.","I love how you make everything okay again.","I love how you forgive.","I love how you move forward with me.","I love how you stay real.","I love how you never lie","I love how you make love feel forever.","I love how you stay constant.","I love how you keep us strong.","I love how you make everything brighter.","I love when you stay patient.","I love how you make me feel complete.","I love how you stay by me no matter what.","I love how you make everything simple.","I love how you stay loving.","I love how you stay kind.","I love how you are always there.","I love how you make life easier.","I love how you make love effortless.","I love how you stay my person.","I love how you stay my peace.","I love how you stay my happiness.","I love how you stay my comfort.","I love how you stay my love.","I love how you stay mine.","I love how you stay with me.","I love you—always.","I love how you make every small thing interesting.","I love how you make me feel alive.","I love how you complete my days.","I love how you understand my silence.","I love how you stay when it's hard.","I love how you never give up on us.","I love how you keep loving me.","I love how you feel like my person.","I love how you make life beautiful.","I love how you make love feel effortless.","I love how you laugh kabhi bhi","I love how you annoy me just enough.","I love how you act innocent but aren't 😄","I love how you keep things interesting.","I love how you're perfectly imperfect.","I love how you stay by my side.","I love how you love with your whole heart.","I love how you make me feel complete.","I love how you make everything better.","I love how you are mine.","I love how we are us.","I love how we grow together.","I love how we understand each other.","I love how we never give up.","I love how we just work.","I love how you changed my life.","I love how you made me believe in love.","I love how you stayed.","I love how you chose me.","I love how you still choose me.","I love how you are my peace.","I love how you are my happiness.","I love how you are my comfort.","I love how you are my person.","I love how you are my everything.","I love how you make me better.","I love how you make me stronger.","I love how you make me softer.","I love how you make me whole.","I love how you make me feel loved.","I love how you make life brighter.","I love how you make moments special.","I love how you make memories beautiful.","I love how you make love real.","I love how you make everything meaningful.","I love how you are you.","I love how you stay true.","I love how you stay kind.","I love how you stay strong.","I love how you stay with me.","I love how you exist in my life.","I love how you changed everything.","I love how you love me.","I love how you are my forever.","I love how you are my always.","I love how you are my today.","I love how you are my tomorrow.","I love how you are my future.","I love how you are my story.","I love how you are my reason.","I love how you are my person.","I love how you are my peace.","I love how you are my happiness.","I love how you are my love.","I love you just because it's you.","I lovee everything about youuu","I love you fully"
+];
+
+let loveBuilt=false;
+function buildLoveWall(){
+  if(loveBuilt)return;loveBuilt=true;
+  const grid=document.getElementById('loveGrid');
+  for(let n=1;n<=365;n++){
+    const c=document.createElement('div');c.className='lcard';
+    c.style.animationDelay=(n*.006)+'s';
+    const txt=reasons[n-1]||`Because of you #${n}`;
+    c.innerHTML=`<span class="lnum">#${n}</span><span class="lreason">${txt}</span>`;
+    grid.appendChild(c);
+  }
+}
+
+/* ── INIT ── */
+const smObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){initCanvas();loop();smObs.disconnect();}});
+},{threshold:.1});
+smObs.observe(document.getElementById('starmap'));
+window.addEventListener('resize',initCanvas);
+</script>
+</body>
+</html>
